@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.raw.stock.mapper.usermapper">
+    <insert id="inserTicket">
+
+        insert into stock_ticket(user_id,ticket,status,expired) values(#{userId},#{ticket},#{status},#{expired});
+
+    </insert>
+    <update id="updataTicketStatus">
+        update stock_ticket set status=1 where ticket=#{ticket}
+    </update>
+
+
+    <select id="selectUserById" resultType="com.raw.stock.entity.user">
+        select id,username,password from stock_user where id=#{id};
+    </select>
+</mapper>
